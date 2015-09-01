@@ -1,0 +1,29 @@
+*.class
+*.log
+
+# OS X
+.DS_Store
+**/.DS_Store
+
+# haskell
+cabal.sandbox.config
+.cabal-sandbox/
+add-source-timestamps
+bin/
+exec/
+packages/
+share/
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virtualenv
+.hsenv
+
+Guardfile
+
+# misc
+codex.tags
+hscope.out
