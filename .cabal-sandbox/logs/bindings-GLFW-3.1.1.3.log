@@ -1,0 +1,69 @@
+Configuring bindings-GLFW-3.1.1.3...
+Building bindings-GLFW-3.1.1.3...
+Preprocessing library bindings-GLFW-3.1.1.3...
+GLFW.hsc:294:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:284:16: note: expanded from macro 'hsc_stoptype'
+               bc_fielddata.array_size[i]); \
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+GLFW.hsc:294:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:316:15: note: expanded from macro 'hsc_stoptype'
+              bc_fielddata.array_size[i]); \
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+GLFW.hsc:294:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:339:15: note: expanded from macro 'hsc_stoptype'
+              bc_fielddata.array_size[i]); \
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+GLFW.hsc:301:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:284:16: note: expanded from macro 'hsc_stoptype'
+               bc_fielddata.array_size[i]); \
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+GLFW.hsc:301:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:316:15: note: expanded from macro 'hsc_stoptype'
+              bc_fielddata.array_size[i]); \
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+GLFW.hsc:301:5: warning: format specifies type 'uintmax_t' (aka 'unsigned long') but the argument has type 'int' [-Wformat]
+    hsc_stoptype ();
+    ^~~~~~~~~~~~~~~
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-DSL-1.0.22/include/bindings.dsl.h:339:15: note: expanded from macro 'hsc_stoptype'
+              bc_fielddata.array_size[i]); \
+              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+6 warnings generated.
+[1 of 1] Compiling Bindings.GLFW    ( dist/dist-sandbox-53ec95f6/build/Bindings/GLFW.hs, dist/dist-sandbox-53ec95f6/build/Bindings/GLFW.o )
+
+glfw/src/cocoa_monitor.m:52:42:
+     warning: 'CGDisplayIOServicePort' is deprecated: first deprecated in OS X 10.9 [-Wdeprecated-declarations]
+        info = IODisplayCreateInfoDictionary(CGDisplayIOServicePort(displayID),
+                                             ^
+
+/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:355:24:
+     note: 'CGDisplayIOServicePort' has been explicitly marked deprecated here
+CG_EXTERN io_service_t CGDisplayIOServicePort(CGDirectDisplayID display)
+                       ^
+1 warning generated.
+
+glfw/src/cocoa_monitor.m:52:42:
+     warning: 'CGDisplayIOServicePort' is deprecated: first deprecated in OS X 10.9 [-Wdeprecated-declarations]
+        info = IODisplayCreateInfoDictionary(CGDisplayIOServicePort(displayID),
+                                             ^
+
+/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:355:24:
+     note: 'CGDisplayIOServicePort' has been explicitly marked deprecated here
+CG_EXTERN io_service_t CGDisplayIOServicePort(CGDirectDisplayID display)
+                       ^
+1 warning generated.
+In-place registering bindings-GLFW-3.1.1.3...
+Creating package registration file:
+/var/folders/dk/nl6w7czd72lbgkn6vqdybch40000gn/T/pkgConf-bindings-GLFW-3.1.137837.3
+Installing library in
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/bindings-GLFW-3.1.1.3
+Registering bindings-GLFW-3.1.1.3...

@@ -1,0 +1,155 @@
+
+package: maze-0.1.0.0
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: gloss-rendering-1.9.2.1 gloss-1.9.2.1 base-4.7.0.1
+              OpenGL-2.9.2.0 GLFW-b-1.4.7.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLFW-b-1.4.7.2
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: bindings-GLFW-3.1.1.3 base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLURaw-1.4.0.2
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: usenativewindowslibraries
+dependencies: base-4.7.0.1 OpenGLRaw-1.5.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: GLUT-2.5.1.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: usenativewindowslibraries
+dependencies: containers-0.5.5.1 base-4.7.0.1 array-0.5.0.0
+              OpenGLRaw-1.5.0.1 OpenGL-2.9.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGL-2.9.2.0
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: text-1.2.1.1 bytestring-0.10.4.0 base-4.7.0.1
+              OpenGLRaw-1.5.0.1 GLURaw-1.4.0.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: OpenGLRaw-1.5.0.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: usenativewindowslibraries useglxgetprocaddress
+dependencies: base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: bindings-DSL-1.0.22
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: bindings-GLFW-3.1.1.3
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: x -wayland -mir macosxuseretina macosxusemenubar
+       macosxusechdir
+dependencies: bindings-DSL-1.0.22 base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: bmp-1.2.5.2
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: bytestring-0.10.4.0 binary-0.7.1.0 base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-1.9.2.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: glut -glfw -explicitbackend
+dependencies: gloss-rendering-1.9.2.1 ghc-prim-0.3.1.0
+              containers-0.5.5.1 bytestring-0.10.4.0 bmp-1.2.5.2 base-4.7.0.1
+              OpenGL-2.9.2.0 GLUT-2.5.1.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: gloss-rendering-1.9.2.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: containers-0.5.5.1 bytestring-0.10.4.0 bmp-1.2.5.2
+              base-4.7.0.1 OpenGL-2.9.2.0 GLUT-2.5.1.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: text-1.2.1.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+flags: -integer-simple -developer
+dependencies: integer-gmp-0.5.1.0 ghc-prim-0.3.1.0 deepseq-1.3.0.2
+              bytestring-0.10.4.0 binary-0.7.1.0 base-4.7.0.1 array-0.5.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: MazeGen-0.1.0.0
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: random-1.1 gloss-rendering-1.9.2.1 gloss-1.9.2.1
+              base-4.7.0.1 OpenGL-2.9.2.0 GLFW-b-1.4.7.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: random-1.1
+os: osx
+arch: x86_64
+compiler: ghc-7.8.3
+client: cabal-install-1.22.0.0
+dependencies: time-1.4.2 base-4.7.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried

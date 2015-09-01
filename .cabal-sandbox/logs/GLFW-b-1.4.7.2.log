@@ -1,0 +1,17 @@
+Configuring GLFW-b-1.4.7.2...
+Building GLFW-b-1.4.7.2...
+Preprocessing library GLFW-b-1.4.7.2...
+[1 of 3] Compiling Graphics.UI.GLFW.Types ( Graphics/UI/GLFW/Types.hs, dist/dist-sandbox-53ec95f6/build/Graphics/UI/GLFW/Types.o )
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package bindings-DSL-1.0.22 ... linking ... done.
+Loading package bindings-GLFW-3.1.1.3 ... linking ... done.
+[2 of 3] Compiling Graphics.UI.GLFW.C ( Graphics/UI/GLFW/C.hs, dist/dist-sandbox-53ec95f6/build/Graphics/UI/GLFW/C.o )
+[3 of 3] Compiling Graphics.UI.GLFW ( Graphics/UI/GLFW.hs, dist/dist-sandbox-53ec95f6/build/Graphics/UI/GLFW.o )
+In-place registering GLFW-b-1.4.7.2...
+Creating package registration file:
+/var/folders/dk/nl6w7czd72lbgkn6vqdybch40000gn/T/pkgConf-GLFW-b-1.4.737837.2
+Installing library in
+/Users/louis/projects/mazes/.cabal-sandbox/lib/x86_64-osx-ghc-7.8.3/GLFW-b-1.4.7.2
+Registering GLFW-b-1.4.7.2...
