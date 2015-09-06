@@ -1,5 +1,6 @@
 module Base.OpenGL 
   ( module Graphics.Gloss.Rendering
+  , module Graphics.Gloss.Data.Picture
   , run
   , renderFrame
   , SquareCell(..)
@@ -36,20 +37,8 @@ run renderFunc = do
             k <- keyIsPressed window Key'Escape
             unless k $ loop window
 
-renderFrame glossState window = do
-     displayPicture (windowWidth, windowHeight) white glossState 1.0 $
-       Pictures
-                [ Color violet $ translate (-300) 100 $ polygon [((-10), 10), ((-10), 70), (20, 20), (20, 30)]
-                , Color red $ translate (-200) 100 $ line [(-30, -30), (-40, 30), (30, 40), (50, -20)]
-                , Color (makeColor 0 128 255 1) $ translate (-100) 100 $ lineLoop [(-30, -30), (-40, 30), (30, 40), (50, -20)]
-                , Color red $ translate 0 100 $ circle 30
-                , Color green $ translate 100 100 $ thickCircle 30 10
-                , Color yellow $ translate 200 100 $ circleSolid 30
-                , Color chartreuse $ translate (-200) (-100) $ thickArc 0 180 30 30
-                , Color (dark magenta) $ translate (-100) (-100) $ arcSolid 0 90 30
-                , Color (bright magenta) $ translate 0 (-100) $ scale 0.2 0.2 $ text "Boo!"
-                , Color (dim cyan) $ translate 100 (-100) $ rotate 30 $ rectangleWire 20 50
-                , Color (light cyan) $ translate 200 (-100) $ rotate 60 $ rectangleSolid 20 50 ]
+renderFrame glossState pics window = do
+     displayPicture (windowWidth, windowHeight) white glossState 1.0 pics
      swapBuffers window
 
 withWindow :: Int -> Int -> String -> (GLFW.Window -> IO ()) -> IO ()

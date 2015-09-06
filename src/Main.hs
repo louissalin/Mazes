@@ -1,6 +1,6 @@
 import Base.OpenGL
 import Binary.Generate
-import Binary.View
+import Binary.Render
 
 main :: IO ()
 main = do
@@ -8,4 +8,4 @@ main = do
 
   -- OpenGl rendering
   glossState <- initState
-  run $ renderFrame glossState
+  run $ renderFrame glossState $ generatePicture maze
