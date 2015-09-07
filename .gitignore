@@ -8,6 +8,7 @@
 # haskell
 cabal.sandbox.config
 .cabal-sandbox/
+.cabal-sandbox
 add-source-timestamps
 bin/
 exec/
