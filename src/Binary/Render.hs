@@ -7,25 +7,13 @@ import Data.Monoid
 generatePicture :: BinMaze -> Picture
 generatePicture m@(BinMaze gridSize _) = 
   Pictures $ fmap (\p -> translate (getX p) (getY p) $ generateCell m p) orderedCells
-       -- Pictures $ 
-       --          [ translate 0 0 $ generateLine gridSize
-       --          ]
   where
     orderedCells = [(x, y) | y <- [1..gridSize], x <- [1..gridSize]]
     getX p = fst $ posToPoint gridSize p
     getY p = snd $ posToPoint gridSize p
 
-generateLine :: Int -> Picture
-generateLine gridSize = line [ (-cs, -cs)
-                             , (-cs,  cs)
-                             , ( cs,  cs)
-                             , ( cs, -cs)
-                             , (-cs, -cs)
-                             ]
-  where cs = cellSize gridSize / 2.0
-
 generateCell :: BinMaze -> Pos -> Picture
-generateCell m@(BinMaze gridSize _) p = topLine p m <> bottomLine p m
+generateCell m@(BinMaze gridSize _) p = topLine p m <> bottomLine p m <> rightLine p m <> leftLine p m
   where 
     cs = cellSize gridSize / 2.0
     topLine p m    = Pictures $ if renderTop p m    then [line [(-cs,  cs), ( cs,  cs)]] else []
@@ -49,8 +37,3 @@ mazeSize = min windowWidth windowHeight - border
 
 border :: Int
 border = 40
-
-
--- dividing line (float) --> (gridSize - (x - 1)) / 2
--- if x < dividing line, go negative
--- else if x >= dividing line, go positive

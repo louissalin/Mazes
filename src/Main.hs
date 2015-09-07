@@ -1,10 +1,12 @@
 import Base.OpenGL
 import Binary.Generate
 import Binary.Render
+import System.Environment
 
 main :: IO ()
 main = do
-  maze <- generateMaze 1
+  size <- getArgs
+  maze <- generateMaze $ read (head size)
 
   -- OpenGl rendering
   glossState <- initState
