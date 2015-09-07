@@ -2,21 +2,18 @@ module Binary.Render where
 
 import Base.OpenGL
 import Binary.Generate
-
-type HasTop = Bool
-type HasBottom = Bool
-type HasLeft = Bool
-type HasRight = Bool
-
-data SquareCell = SquareCell Point HasTop HasRight HasBottom HasLeft
-
-type MazeRenderData = [SquareCell]
+import Data.Monoid
 
 generatePicture :: BinMaze -> Picture
-generatePicture (BinMaze gridSize _) = 
-       Pictures
-                [ translate 0 0 $ generateLine gridSize
-                ]
+generatePicture m@(BinMaze gridSize _) = 
+  Pictures $ fmap (\p -> translate (getX p) (getY p) $ generateCell m p) orderedCells
+       -- Pictures $ 
+       --          [ translate 0 0 $ generateLine gridSize
+       --          ]
+  where
+    orderedCells = [(x, y) | y <- [1..gridSize], x <- [1..gridSize]]
+    getX p = fst $ posToPoint gridSize p
+    getY p = snd $ posToPoint gridSize p
 
 generateLine :: Int -> Picture
 generateLine gridSize = line [ (-cs, -cs)
@@ -27,27 +24,22 @@ generateLine gridSize = line [ (-cs, -cs)
                              ]
   where cs = cellSize gridSize / 2.0
 
-generateCell :: Picture
-generateCell = undefined
+generateCell :: BinMaze -> Pos -> Picture
+generateCell m@(BinMaze gridSize _) p = topLine p m <> bottomLine p m
+  where 
+    cs = cellSize gridSize / 2.0
+    topLine p m    = Pictures $ if renderTop p m    then [line [(-cs,  cs), ( cs,  cs)]] else []
+    bottomLine p m = Pictures $ if renderBottom p m then [line [(-cs, -cs), ( cs, -cs)]] else []
+    rightLine p m  = Pictures $ if renderRight p m  then [line [( cs,  cs), ( cs, -cs)]] else []
+    leftLine p m   = Pictures $ if renderLeft p m   then [line [(-cs,  cs), (-cs, -cs)]] else []
 
--- generateRenderData :: BinMaze -> MazeRenderData
--- generateRenderData (BinMaze gridSize openings) = 
---   where
---     orderedCells = [(x, y) | y <- reverse [1..gridSize], x <- [1..gridSize]]
-
--- returns a function with a picture pre-translated
--- posToPoint :: Pos -> (Picture -> Picture)
--- posToPoint p = translate (-200) 100
-
--- decide if a maze position should be rendered in the negative or positive side of the screen
--- Gloss coords on the screen have (0,0) in the center
-translateMult :: Int -> Int -> Int
-translateMult gridSize pos 
-  | fromIntegral pos < fromIntegral gridSize / 2.0 = -1
-  | otherwise = 1
-
-potToPoint :: Pos -> Point
-potToPoint = undefined
+posToPoint :: Int -> Pos -> Point
+posToPoint gridSize (x, y) = ( distance x * cellSize gridSize
+                             , distance y * cellSize gridSize
+                             )
+  where
+    distance c = fromIntegral c - divLine - 0.5
+    divLine    = fromIntegral gridSize / 2.0
 
 cellSize :: Int -> Float
 cellSize gridSize = fromIntegral mazeSize / fromIntegral gridSize

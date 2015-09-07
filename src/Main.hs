@@ -4,7 +4,7 @@ import Binary.Render
 
 main :: IO ()
 main = do
-  maze <- generateMaze 5
+  maze <- generateMaze 1
 
   -- OpenGl rendering
   glossState <- initState
