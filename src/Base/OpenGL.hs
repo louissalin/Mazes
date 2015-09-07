@@ -3,7 +3,8 @@ module Base.OpenGL
   , module Graphics.Gloss.Data.Picture
   , run
   , renderFrame
-  , SquareCell(..)
+  , windowHeight
+  , windowWidth
   ) where
 
 import Graphics.UI.GLFW as GLFW
@@ -17,13 +18,6 @@ import Control.Monad (when, unless)
 windowWidth, windowHeight :: Int
 windowWidth  = 640
 windowHeight = 480
-
-type HasTop = Bool
-type HasBottom = Bool
-type HasLeft = Bool
-type HasRight = Bool
-
-data SquareCell = SquareCell Point HasTop HasRight HasBottom HasLeft
 
 run :: (Window -> IO ()) -> IO ()
 run renderFunc = do

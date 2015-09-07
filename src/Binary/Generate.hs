@@ -2,9 +2,12 @@ module Binary.Generate
   ( Direction(..)
   , Opening(..)
   , Pos
-  , BinMaze
+  , BinMaze(..)
   , generateMaze
-  , gridSize
+  , renderRight
+  , renderBottom
+  , renderTop
+  , renderLeft
   ) where
 
 import Control.Applicative
@@ -39,10 +42,8 @@ data Opening = Opening Pos Direction
 
 type Pos = (Int, Int)
 
--- a maze is really just a list of openings
-type BinMaze = [Opening]
-
-gridSize = 5
+-- a maze is really just a list of openings and a grid size
+data BinMaze = BinMaze Int [Opening]
 
 chooseDirection :: IO Direction
 chooseDirection = do
@@ -51,14 +52,44 @@ chooseDirection = do
     then (return North)
     else (return East)
 
-generateMaze :: IO BinMaze
-generateMaze = 
+generateMaze :: Int -> IO BinMaze
+generateMaze gridSize = 
   let allPos = [(x, y) | x <- [1..gridSize], y <- [1..gridSize]]
-  in  mapM generateOpening allPos
+  in  BinMaze gridSize <$> mapM (generateOpening gridSize) allPos
 
-generateOpening :: Pos -> IO Opening
-generateOpening p@(x, y)
+generateOpening :: Int -> Pos -> IO Opening
+generateOpening gridSize p@(x, y)
   | x == gridSize && y == gridSize = return $ NoOpening p
   | x == gridSize && y < gridSize  = return $ Opening p North
   | x < gridSize && y == gridSize  = return $ Opening p East
   | otherwise                      = Opening p <$> chooseDirection
+
+
+-- utility functions to discover things about the maze
+-- 
+
+findOpening :: Pos -> BinMaze -> Maybe Opening 
+findOpening p (BinMaze _ openings) = find isCell openings
+  where 
+    isCell (Opening p' _) = p == p'
+    isCell (NoOpening p') = p == p'
+
+renderRight :: Pos -> BinMaze -> Bool
+renderRight p maze = case findOpening p maze of
+  Just (Opening _ East) -> False
+  _                     -> True
+
+renderBottom :: Pos -> BinMaze -> Bool
+renderBottom (x, y) maze = case findOpening (x, y - 1) maze of
+  Just (Opening _ North) -> False
+  _                      -> True
+
+renderTop :: Pos -> BinMaze -> Bool
+renderTop p maze = case findOpening p maze of
+  Just (Opening _ North) -> False
+  _                      -> True
+
+renderLeft :: Pos -> BinMaze -> Bool
+renderLeft (x, y) maze = case findOpening (x - 1, y) maze of
+  Just (Opening _ East) -> False
+  _                     -> True

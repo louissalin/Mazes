@@ -65,18 +65,3 @@ renderBottomCell maze p = do
     else putStr "  "
   putStr " "
 
-findOpening :: Pos -> BinMaze -> Maybe Opening 
-findOpening p = find isCell
-  where 
-    isCell (Opening p' _) = p == p'
-    isCell (NoOpening p') = p == p'
-
-renderRight :: Pos -> BinMaze -> Bool
-renderRight p maze = case findOpening p maze of
-  Just (Opening _ East) -> False
-  _                      -> True
-
-renderBottom :: Pos -> BinMaze -> Bool
-renderBottom (x, y) maze = case findOpening (x, y - 1) maze of
-  Just (Opening _ North) -> False
-  _                      -> True
